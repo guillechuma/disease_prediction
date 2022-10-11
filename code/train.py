@@ -6,7 +6,6 @@ from sklearn import preprocessing
 import xgboost as xgb
 import joblib
 import gzip
-from helper import preprocess_kaggle
 
 # Machine learning model: XGBoost 
 

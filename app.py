@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 from code.DiseaseModel import DiseaseModel
 from code.helper import prepare_symptoms_array
 
