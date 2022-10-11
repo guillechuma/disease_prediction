@@ -1,6 +1,4 @@
-from regex import F
 import xgboost as xgb
-from code.helper import preprocess_kaggle
 import pandas as pd
 
 class DiseaseModel:
@@ -65,7 +63,7 @@ class DiseaseModel:
 
     def disease_list(self, kaggle_dataset):
 
-        df = preprocess_kaggle(kaggle_dataset)
+        df = pd.read_csv('data/clean_dataset.tsv', sep='\t')
         # Preprocessing
         y_data = df.iloc[:,-1]
         X_data = df.iloc[:,:-1]

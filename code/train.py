@@ -6,11 +6,21 @@ from sklearn import preprocessing
 import xgboost as xgb
 import joblib
 import gzip
-from code.helper import preprocess_kaggle
+from helper import preprocess_kaggle
 
 # Machine learning model: XGBoost 
 
-clean_df = preprocess_kaggle('data/dataset.csv')
+# import the dataset
+dataset_df = pd.read_csv('data/dataset.csv')
+
+# Preprocess
+dataset_df = dataset_df.apply(lambda col: col.str.strip())
+
+test = pd.get_dummies(dataset_df.filter(regex='Symptom'), prefix='', prefix_sep='')
+test = test.groupby(test.columns, axis=1).agg(np.max)
+clean_df = pd.merge(test,dataset_df['Disease'], left_index=True, right_index=True)
+
+clean_df.to_csv('data/clean_dataset.tsv', sep='\t', index=False)
 
 # Preprocessing
 X_data = clean_df.iloc[:,:-1]
