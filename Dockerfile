@@ -1,13 +1,13 @@
 # app/Dockerfile
 
-FROM python:3.10
+FROM python:3.9-alpine
 
 WORKDIR /app
 
 # Copy all files to the docker app
 COPY . .
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 EXPOSE 8501
 
