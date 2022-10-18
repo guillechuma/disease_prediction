@@ -4,8 +4,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn import preprocessing
 import xgboost as xgb
-import joblib
-import gzip
 
 # Machine learning model: XGBoost 
 
@@ -51,5 +49,4 @@ preds = model.predict(X_test)
 print(f"The accuracy of the model is {accuracy_score(y_test, preds)}")
 
 # Export model
-joblib.dump(model, gzip.open('model/model_binary.dat.gz', "wb"))
 model.save_model("model/xgboost_model.json")
