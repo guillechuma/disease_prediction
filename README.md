@@ -4,7 +4,17 @@ A streamlit app that uses a machine learning model to predict disease based on l
 
 ## Installation
 
-This repository contains two ways (soon I will add a dockerfile) to setup the environments.
+This repository contains three ways to setup the environments and run the app.
+
+### Easiest: docker
+
+1. If you have docker install, just run
+
+```
+docker run -p 8501:8501 guillechuma/disease_pred_streamlit
+```
+
+2. See the app at <https://localhost:8501>
 
 ### Easiest: conda
 
